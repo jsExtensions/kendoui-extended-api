@@ -18,4 +18,4 @@ The Kendo UI Extended API extends the Kendo UI Framework with additional widgets
 
 ## Authors
 
-** John DeVight, jsExtensions LLC.**
+**John DeVight, jsExtensions LLC.**
