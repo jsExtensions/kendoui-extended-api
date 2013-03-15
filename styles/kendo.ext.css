@@ -1,0 +1,69 @@
+﻿/* ExtSplitter */
+.k-ext-layout-header {
+    margin-top:0px;
+    position: relative;
+}
+
+.k-ext-layout-title {
+    font-size:14px;
+    font-weight:bold;
+}
+
+.k-ext-vertical-layout-title {
+    position: absolute; 
+    top: 30px !important;
+    text-align: center;
+    width: 14px;
+	margin-left: 3px;
+}
+
+.k-ext-arrows-left, .k-ext-arrows-right, .k-ext-arrows-up, .k-ext-arrows-down {
+	overflow: hidden;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-image: url('./Images/small-sprites.gif') !important;
+	margin: 0;
+}
+
+.k-ext-arrows-left {
+	background-position: 0 -16px;
+}
+
+.k-ext-arrows-right {
+	background-position: -16px -16px;
+}
+
+.k-ext-arrows-up {
+	background-position: 0 0;
+}
+
+.k-ext-arrows-down {
+	background-position: -16px 0;
+}
+
+.k-ext-information, .k-ext-question, .k-ext-warning, .k-ext-error {
+	overflow: hidden;
+	width: 32px;
+	height: 32px;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-image: url('./Images/medium-sprites.png');
+	margin: 0;
+}
+
+.k-ext-information {
+	background-position: 0 0;
+}
+
+/* ExtBorderLayout */
+.k-ext-inner-splitter-contents {
+    overflow: hidden !important;
+}
+
+.k-ext-table {
+	background-position: -108px -270px;
+    height: 20px !important;
+}
