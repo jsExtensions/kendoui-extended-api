@@ -1,0 +1,115 @@
+﻿body {
+    font-size: 14px;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: darkred;
+}
+    a:hover {
+        font-weight: bold;
+    }
+
+pre {
+    font-size: 12px;
+}
+
+#headerTitle {
+    font-size: 24px;
+    margin: 5px 5px 5px 25px;
+}
+
+.pane-content {
+    margin: 5px 5px 5px 5px;
+}
+
+#navigationPane .k-minus {
+    margin-bottom: 5px;
+}
+
+#navigationPane .section {
+    margin-left: 30px !important;
+}
+
+.navigation-link {
+    margin-bottom: 10px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.widget-subtitle {
+    font-size: 16px;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.widget-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.section, .property-section, .note-section {
+    margin-left: 20px;
+    position: relative;
+}
+
+.property-section {
+    margin-bottom: 10px;
+}
+
+.highlight-section, .note-section {
+    margin-top: 10px;
+    width: 600px;
+    padding: 7px 7px 7px 7px;
+}
+
+.note-section {
+    font-style: italic;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.subsection-title, .property-title {
+    font-size: 16px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.subsection-title {
+    font-style: italic;
+}
+
+.property-title {
+    font-weight: bold;
+}
+
+.property-type {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.parameter-title {
+    font-weight: bold;
+}
+.parameter-type {
+    font-style: italic;
+}
+
+.external-link-image {
+    background-image: url('./Images/external-link.gif');
+    height: 16px;
+    width: 16px;
+    background-repeat: no-repeat;
+    display: inline-block;
+}

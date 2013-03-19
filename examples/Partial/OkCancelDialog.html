@@ -1,0 +1,74 @@
+<div class="widget-title k-block">kendo.ui.ExtOkCancelDialog <i>extends</i> <a href="#/dialog">kendo.ui.ExtDialog</a></div>
+<div class="widget-subtitle">Introduced in 2013 Q1</div>
+<div class="section">
+    The ExtOkCancelDialog widget displays an OK/Cancel dialog.
+</div>
+
+<div class="section-title">Example</div>
+<div class="section">
+    <div id="selectIconContainer" style="display:block;margin-bottom:20px;">
+        <span>Icon: </span>
+        <select id="selectIcon">
+            <option value="k-ext-information">Information</option>
+            <option value="k-ext-question">Question</option>
+            <option value="k-ext-warning">Warning</option>
+            <option value="k-ext-error">Error</option>
+        </select>
+    </div>
+    <button id="showOkCancelDialogButton" class="k-button">Show OK Cancel Dialog</button>
+
+    <div id="userResponse" style="margin-top:20px;">
+    </div>
+</div>
+
+<div class="section-title">Configuration</div>
+<div class="section">
+    <div><span class="property-title">message</span> <span class="property-type">: String</span></div>
+    <div class="property-section">
+        Message to be displayed to the user.
+    </div>
+
+    <div><span class="property-title">icon</span> <span class="property-type">: String</span></div>
+    <div class="property-section">
+        The CSS Class of the image to be displayed.  Images provided are:
+        <ul>
+            <li>Information: k-ext-information</li>
+            <li>Question: k-ext-question</li>
+            <li>Warning: k-ext-warning</li>
+            <li>Error: k-ext-error</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section-title">Methods</div>
+<div class="section">
+    <div><span class="property-title">show</span></div>
+    <div class="property-section">
+        Show the ok/cancel dialog.
+    </div>
+    <div><span class="subsection-title">Parameters</span></div>
+    <div class="property-section">
+        <div><span class="parameter-title">options</span> <span class="parameter-type">: JSON Object</span></div>
+        <div class="property-section">
+            Configuration options used to display the ok/cancel dialog.
+        </div>
+    </div>
+    <div><span class="subsection-title">Return</span></div>
+    <div>
+        <div><span class="parameter-type">jQuery.Deferred Object</span></div>
+        <div class="property-section">
+            jQuery Deferred object. When the Deferred object is resolved, any done callbacks are 
+            executed when the user clicks on the OK or Cancel button.  The argument returned is
+            a JSON Object with the following attributes:
+            <ul>
+                <li>button (String): the button that was clicked.</li>
+                <li>input (String): the input entered by the user.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div><span class="property-title">hide</span></div>
+    <div class="property-section">
+        Hide the ok/cancel dialog.
+    </div>
+</div>

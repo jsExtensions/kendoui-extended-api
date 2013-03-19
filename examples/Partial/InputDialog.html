@@ -1,0 +1,65 @@
+<div class="widget-title k-block">kendo.ui.ExtInputDialog <i>extends</i> <a href="#/dialog">kendo.ui.ExtDialog</a></div>
+<div class="widget-subtitle">Introduced in 2013 Q1</div>
+<div class="section-title">Description</div>
+<div class="section">
+    The ExtInputDialog widget displays an Input dialog.
+</div>
+
+<div class="section-title">Example</div>
+<div class="section">
+    <button id="showInputDialogButton" class="k-button">Show Input Dialog</button>
+
+    <div id="userResponse" style="margin-top:20px;">
+    </div>
+</div>
+
+<div class="section-title">Configuration</div>
+<div class="section">
+    <div><span class="property-title">message</span> <span class="property-type">: String</span></div>
+    <div class="property-section">
+        Message prompt to be displayed to the user.
+    </div>
+
+    <div><span class="property-title">required</span> <span class="property-type">: Boolean</span></div>
+    <div class="property-section">
+        Indicates whether a value must be entered in the input field.
+    </div>
+
+    <div><span class="property-title">requiredCss</span> <span class="property-type">: String</span></div>
+    <div class="property-section">
+        The CSS Class to be applied to the input field if a value is required and empty when the user clicks the OK button.
+    </div>
+</div>
+
+<div class="section-title">Methods</div>
+<div class="section">
+    <div><span class="property-title">show</span></div>
+    <div class="property-section">
+        Show the input dialog.
+    </div>
+    <div><span class="subsection-title">Parameters</span></div>
+    <div class="property-section">
+        <div><span class="parameter-title">options</span> <span class="parameter-type">: JSON Object</span></div>
+        <div class="property-section">
+            Configuration options used to display the input dialog.
+        </div>
+    </div>
+    <div><span class="subsection-title">Return</span></div>
+    <div>
+        <div><span class="parameter-type">jQuery.Deferred Object</span></div>
+        <div class="property-section">
+            jQuery Deferred object. When the Deferred object is resolved, any done callbacks are 
+            executed when the user clicks on the OK or Cancel button.  The argument returned is
+            a JSON Object with the following attributes:
+            <ul>
+                <li>button (String): the button that was clicked.</li>
+                <li>input (String): the input entered by the user.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div><span class="property-title">hide</span></div>
+    <div class="property-section">
+        Hide the input dialog.
+    </div>
+</div>

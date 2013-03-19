@@ -1,0 +1,87 @@
+﻿<div class="widget-title k-block">kendo.ui.ExtBorderLayout <i>extends</i> <a href="http://docs.kendoui.com/api/framework/widget">kendo.ui.Widget <div class="external-link-image"></div></a></div>
+<div class="widget-subtitle">Introduced in 2013 Q1</div>
+<div class="section-title">Description</div>
+<div class="section">
+    The ExtBorderLayout widget represents a layout similar in functionality to the
+    <a href="http://dev.sencha.com/deploy/ext-4.0.0/examples/layout/complex.html">ExtJS Border Layout <div class="external-link-image"></div></a>.
+</div>
+
+<div class="section-title">Example</div>
+<div class="section">
+    <div id="exampleBorderLayout" style="width:600px;">
+        <div id="exampleBorderLayoutNorth">
+            North Pane
+        </div>
+
+        <div id="exampleBorderLayoutEast">
+            East Pane
+        </div>
+
+        <div id="exampleBorderLayoutSouth">
+            South Pane
+        </div>
+
+        <div id="exampleBorderLayoutWest">
+            West Pane
+        </div>
+
+        <div id="exampleBorderLayoutCenter">
+            Center Pane
+        </div>
+    </div>
+</div>
+
+<div class="section-title">Configuration</div>
+<div class="section">
+    <div><span class="property-title">items</span> <span class="property-type">: Array</span></div>
+    <div class="property-section">
+        An array of pane definitions.  See <a href="http://docs.kendoui.com/api/web/splitter#panes-array">Splitter panes <div class="external-link-image"></div></a>
+        for all inherited configuration settings.
+    </div>
+
+    <div><span class="property-title">items.content</span> <span class="property-type">: String</span></div>
+    <div class="property-section">
+        The css selector for the div containing the contents of the pane.
+    </div>
+
+    <div><span class="property-title">items.region</span> <span class="property-type">: String</span></div>
+    <div class="property-section">
+        The region where the pane is displayed.  Options are: north, south, east, west and center.
+    </div>
+
+    <div><span class="property-title">items.title</span> <span class="property-type">: String</span></div>
+    <div class="property-section">
+        The title to be displayed in the titlebar.
+
+        <div class="highlight-section k-block">
+            Note: If a title is not provided and collapsible is set to false, then a titlebar is not displayed for
+            the pane.
+        </div>
+    </div>
+</div>
+
+<div class="section-title">Methods</div>
+<div class="section">
+    <div><span class="property-title">setTitle</span></div>
+    <div class="property-section">
+        Change the title for a pane.
+    </div>
+    <div><span class="subsection-title">Parameters</span></div>
+    <div class="property-section">
+        <div><span class="parameter-title">region</span> <span class="parameter-type">: String</span></div>
+        <div class="property-section">
+            region to set the new title.  Options are: north, south, east and west.
+        </div>
+
+        <div><span class="parameter-title">title</span> <span class="parameter-type">: String</span></div>
+        <div class="property-section">
+            title to display in the titlebar.
+        </div>
+    </div>
+    <div><span class="subsection-title">Example</span></div>
+    <div class="property-section">
+        <div class="highlight-section k-block">
+            $("#exampleBorderLayout").data("kendoExtBorderLayout").setTitle("north", "heading");
+        </div>
+    </div>
+</div>

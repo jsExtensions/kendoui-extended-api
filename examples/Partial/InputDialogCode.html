@@ -1,0 +1,19 @@
+<div class="section-title">JavaScript Code</div>
+<div class="subsection-title">Taken from /Scripts/KendoUiExt.InputDialog.js</div>
+<div class="section">
+    <pre>
+$.when(kendo.ui.ExtInputDialog.show({ 
+    title: "Input", 
+    message: "Please enter your name:", 
+    required: true })
+).done(function (response) {
+    if (response.button == "OK") {
+        $("#userResponse").append(kendo.format("&lt;div>{0} button clicked at: {1} with input of: {2}&lt;/div>", 
+            response.button, new Date().toLocaleTimeString(), response.input));
+    } else {
+        $("#userResponse").append(kendo.format("&lt;div>{0} button clicked at: {1}&lt;/div>", 
+            response.button, new Date().toLocaleTimeString()));
+    }
+});
+    </pre>
+</div>

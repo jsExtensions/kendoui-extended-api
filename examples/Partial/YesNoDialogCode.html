@@ -1,0 +1,21 @@
+﻿<div class="section-title">JavaScript Code</div>
+<div class="subsection-title">Taken from /Scripts/KendoUiExt.YesNoDialog.js</div>
+<div class="section">
+    <pre>
+var selectIcon = $("#selectIcon")
+    .kendoDropDownList()
+    .data("kendoDropDownList");
+
+$.when(kendo.ui.ExtOkCancelDialog.show({ 
+    title: "Yes/No", 
+    message: "This is a sample yes/no box",
+    icon: selectIcon.value() })
+).done(function (response) {
+    $("#userResponse").append(
+        kendo.format("&lt;div>{0} button clicked at: {1}&lt;/div>", 
+            response.button, 
+            new Date().toLocaleTimeString())
+    );
+});
+    </pre>
+</div>

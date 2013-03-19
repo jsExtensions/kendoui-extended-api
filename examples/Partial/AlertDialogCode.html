@@ -1,0 +1,20 @@
+<div class="section-title">JavaScript Code</div>
+<div class="subsection-title">Taken from /Scripts/KendoUiExt.AlertDialog.js</div>
+<div class="section">
+    <pre>
+var selectIcon = $("#selectIcon")
+    .kendoDropDownList()
+    .data("kendoDropDownList");
+
+$.when(kendo.ui.ext.AlertDialog.show({
+    title: "Alert!", 
+    message: "This is a sample alert box",
+    icon: selectIcon.value() })
+).done(function () {
+    $("#userResponse").append(
+        kendo.format("&lt;div>OK button clicked at: {0}&lt;/div>", 
+            new Date().toLocaleTimeString())
+    );
+});
+    </pre>
+</div>
