@@ -870,7 +870,8 @@
             $(document).click(function (e) {
                 // Ignore clicks on the grid.
                 if ($(e.target).closest(kendo.format("#extGrid{0}", that._uid)).length == 0 &&
-                    ($(e.target).hasClass("k-link") && $(e.target).data("page") > 0) == false) {
+                    ($(e.target).closest("form.k-filter-menu").length == 0) &&  /* Filter form */
+                    ($(e.target).hasClass("k-link") && $(e.target).data("page") > 0) == false /* Pager */) {
                     // If visible, then close the grid.
                     if ($(that._grid.element).hasClass("k-custom-visible")) {
                         $(that._grid.element).slideToggle('fast', function () {
@@ -894,6 +895,103 @@
         }
     });
     kendo.ui.plugin(ExtDropDownGrid);
+
+
+
+    /*
+     *
+     * ExtDropDownTreeView
+     *
+     */
+
+    var ExtDropDownTreeView = kendo.ui.Widget.extend({
+        _uid: null,
+        _treeview: null,
+        _dropdown: null,
+
+        init: function (element, options) {
+            var that = this;
+
+            kendo.ui.Widget.fn.init.call(that, element, options);
+
+            that._uid = new Date().getTime();
+
+            $(element).append(kendo.format("<input id='extDropDown{0}' class='k-ext-dropdown'/>", that._uid));
+            $(element).append(kendo.format("<div id='extTreeView{0}' class='k-ext-treeview' style='z-index:1;'/>", that._uid));
+
+            // Create the dropdown.
+            that._dropdown = $(kendo.format("#extDropDown{0}", that._uid)).kendoDropDownList({
+                dataSource: [{ text: "", value: "" }],
+                dataTextField: "text",
+                dataValueField: "value",
+                open: function (e) {
+                    // If the treeview is not visible, then make it visible.
+                    if (!$treeviewRootElem.hasClass("k-custom-visible")) {
+                        $treeviewRootElem.slideToggle('fast', function () {
+                            that._dropdown.close();
+                            $treeviewRootElem.addClass("k-custom-visible");
+                        });
+                    }
+                }
+            }).data("kendoDropDownList");
+
+            if (options.dropDownWidth) {
+                that._dropdown._inputWrapper.width(options.dropDownWidth);
+            }
+
+            var $dropdownRootElem = $(that._dropdown.element).closest("span.k-dropdown");
+
+            // Create the treeview.
+            that._treeview = $(kendo.format("#extTreeView{0}", that._uid)).kendoTreeView(options.treeview).data("kendoTreeView");
+            that._treeview.bind("select", function (e) {
+                // When a node is selected, display the text for the node in the dropdown and hide the treeview.
+                $dropdownRootElem.find("span.k-input").text($(e.node).children("div").text());
+                $treeviewRootElem.slideToggle('fast', function () {
+                    $treeviewRootElem.removeClass("k-custom-visible");
+                    that.trigger("select", e);
+                });
+            });
+
+            var $treeviewRootElem = $(that._treeview.element).closest("div.k-treeview");
+
+            // Hide the treeview.
+            $treeviewRootElem
+                .width($dropdownRootElem.width())
+                .css({
+                    "border": "1px solid grey",
+                    "display": "none",
+                    "position": "absolute",
+                    "background-color": that._dropdown.list.css("background-color")
+                });
+
+            // Position the treeview so that it is below the dropdown.
+            $treeviewRootElem.css({
+                "top": $dropdownRootElem.position().top + $dropdownRootElem.height(),
+                "left": $dropdownRootElem.position().left
+            });
+
+            $(document).click(function (e) {
+                // Ignore clicks on the treetriew.
+                if ($(e.target).closest("div.k-treeview").length == 0) {
+                    // If visible, then close the treeview.
+                    if ($treeviewRootElem.hasClass("k-custom-visible")) {
+                        $treeviewRootElem.slideToggle('fast', function () {
+                            $treeviewRootElem.removeClass("k-custom-visible");
+                        });
+                    }
+                }
+            });
+        },
+
+        treeview: function () {
+            return this._treeview;
+        },
+
+        options: {
+            name: "ExtDropDownTreeView"
+        }
+    });
+    kendo.ui.plugin(ExtDropDownTreeView);
 
 
 

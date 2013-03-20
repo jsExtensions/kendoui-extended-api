@@ -12,12 +12,13 @@ The Kendo UI Extended API extends the Kendo UI Framework with additional widgets
 + ExtYesNoDialog - Yes/No Dialog
 + ExtWaitDialog - Wait Dialog
 + ExtDropDownGrid - Kendo DropDownList that displays a Kendo Grid instead of a list when clicked.
++ ExtDropDownTreeView - Kendo DropDownList that displays a Kendo TreeView instead of a list when clicked.
 
 ## Coming Soon
 
 + ExtMultiLineInputDialog - Input Dialog
-+ ExtDropDownTreeView - Kendo DropDownList that displays a Kendo TreeView instead of a list when clicked.
-+ ExtEditor - Extended Kendo.ui.Editor
++ ExtEditor - Extend Kendo.ui.Editor to support tables.
++ ExtTextBox - TextBox that applies the Kendo Styles and can display a watermark.
 + ExtTreeView - Extended Kendo.ui.TreeView
 
 ## Authors

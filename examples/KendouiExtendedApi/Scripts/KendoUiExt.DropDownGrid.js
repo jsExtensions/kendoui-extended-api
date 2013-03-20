@@ -1,10 +1,8 @@
 ﻿var KendoUiExt = KendoUiExt || {};
 
 KendoUiExt.DropDownGrid = function () {
-    var _dialog = null;
-
     var load = function () {
-        $("#dropDownGrid").kendoExtDropDownGrid({
+        var dropDownGrid = $("#dropDownGrid").kendoExtDropDownGrid({
             dataTextField: "FirstName",
             dropDownWidth: "100px",
             gridWidth: "700px",
@@ -55,8 +53,15 @@ KendoUiExt.DropDownGrid = function () {
                     }
                 ],
                 pageable: true,
-                selectable: true
+                selectable: true,
+                filterable: true
             }
+        }).data("kendoExtDropDownGrid");
+
+        dropDownGrid.grid().bind("change", function () {
+            var selectedRows = this.select();
+            var dataItem = this.dataItem(selectedRows[0]);
+            $("#userSelection").prepend(kendo.format("<div>You Selected: {0} {1}, {2}</div>", dataItem.FirstName, dataItem.LastName, dataItem.Title));
         });
     };
 
