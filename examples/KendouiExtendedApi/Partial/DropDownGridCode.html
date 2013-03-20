@@ -1,0 +1,69 @@
+<div class="section-title">HTML Code</div>
+<div class="subsection-title">Taken from /Partial/DropDownGrid.html</div>
+<div class="section">
+    <pre>
+&lt;div id="dropDownGrid">
+&lt;/div>
+    </pre>
+</div>
+
+<div class="section-title">JavaScript Code</div>
+<div class="subsection-title">Taken from /Scripts/KendoUiExt.DropDownGrid.js</div>
+<div class="section">
+    <pre>
+$("#dropDownGrid").kendoExtDropDownGrid({
+    dataTextField: "FirstName",
+    dropDownWidth: "200px",
+    gridWidth: "700px",
+    grid: {
+        dataSource: {
+            data: createRandomData(500),
+            pageSize: 10,
+            schema: {
+                model: {
+                    fields: {
+                        FirstName: { type: "string" },
+                        LastName: { type: "string" },
+                        City: { type: "string" },
+                        Title: { type: "string" },
+                        BirthDate: { type: "date" },
+                        Age: { type: "number" }
+                    }
+                }
+            }
+        },
+        columns: [
+            {
+                field: "FirstName",
+                title: "First Name",
+                width: 100
+            },
+            {
+                field: "LastName",
+                title: "Last Name",
+                width: 100
+            },
+            {
+                field: "City",
+                width: 100
+            },
+            {
+                field: "Title"
+            },
+            {
+                field: "BirthDate",
+                title: "Birth Date",
+                template: '#= kendo.toString(BirthDate,"MM/dd/yyyy") #',
+                width: 100
+            },
+            {
+                field: "Age",
+                width: 50
+            }
+        ],
+        pageable: true,
+        selectable: true
+    }
+});
+    </pre>
+</div>
