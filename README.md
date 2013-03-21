@@ -16,10 +16,17 @@ The Kendo UI Extended API extends the Kendo UI Framework with additional widgets
 
 ## Coming Soon
 
-+ ExtMultiLineInputDialog - Input Dialog
-+ ExtEditor - Extend Kendo.ui.Editor to support tables.
-+ ExtTextBox - TextBox that applies the Kendo Styles and can display a watermark.
-+ ExtTreeView - Extended Kendo.ui.TreeView
++ ExtMultiLineInputDialog - Multi Line Input Dialog
++ ExtEditor - Extend Kendo.ui.Editor to support tables
++ ExtTextBox - TextBox that applies the Kendo styles
++ ExtTreeView - Extended Kendo.ui.TreeView with support for context menus
+
+## Articles on How to Use the Kendo UI Web Extended Widgets
++ [Kendo UI Extended API: DropDownTreeView Widget](http://www.aspnetwiki.com/page:kendoui-ext-api-dropdowntreeview)
++ [Kendo UI Extended API: DropDownGrid Widget](http://www.aspnetwiki.com/page:kendoui-ext-api-dropdowngrid)
++ [Kendo UI Extended API: MessageBox Dialogs](http://www.aspnetwiki.com/page:kendoui-ext-api-messagebox-dialogs)
++ [Kendo UI Extended API: BorderLayout Widget](http://www.aspnetwiki.com/page:kendoui-ext-api-borderlayout)
+
 
 ## Authors
 

@@ -835,6 +835,8 @@
                         $(that._grid.element).slideToggle('fast', function () {
                             $(that._grid.element).removeClass("k-custom-visible");
                         });
+
+                        that.trigger("change", e);
                     }
                 });
             });
@@ -981,6 +983,10 @@
                     }
                 }
             });
+        },
+
+        dropDownList: function () {
+            return this._dropdown;
         },
 
         treeview: function () {

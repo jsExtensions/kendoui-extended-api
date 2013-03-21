@@ -29,7 +29,7 @@ KendoUiExt.DropDownTreeView = function () {
         dropDownTreeView.treeview().expand(".k-item");
 
         dropDownTreeView.bind("select", function (e) {
-            $("#userSelection").prepend(kendo.format("<div>You Selected: {0}", $(e.node).children("div").text()));
+            $("#userSelection").prepend(kendo.format("<div>You Selected: {0}</div>", $(e.node).children("div").text()));
         });
     };
 

@@ -58,9 +58,9 @@ KendoUiExt.DropDownGrid = function () {
             }
         }).data("kendoExtDropDownGrid");
 
-        dropDownGrid.grid().bind("change", function () {
-            var selectedRows = this.select();
-            var dataItem = this.dataItem(selectedRows[0]);
+        dropDownGrid.bind("change", function () {
+            var selectedRows = this.grid().select();
+            var dataItem = this.grid().dataItem(selectedRows[0]);
             $("#userSelection").prepend(kendo.format("<div>You Selected: {0} {1}, {2}</div>", dataItem.FirstName, dataItem.LastName, dataItem.Title));
         });
     };
