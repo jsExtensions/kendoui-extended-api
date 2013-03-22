@@ -32,9 +32,6 @@ The Kendo UI Extended API extends the Kendo UI Framework with additional widgets
 + [Kendo UI Extended API: BorderLayout Widget](http://www.aspnetwiki.com/page:kendoui-ext-api-borderlayout)
 
 
-## Articles on How to Use the Kendo UI Web Extended Widgets
-
-
 ## Support Forum Coming Soon
 
 
