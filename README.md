@@ -44,21 +44,21 @@ The Kendo UI Extended API extends the Kendo UI Framework with additional widgets
 
 Add the contents of the styles folder to your application.  In the HTML file, add a reference to kendo.ext.css.  For example:
 
-'''html
+```html
 <link href="//cdn.kendostatic.com/2012.3.1315/styles/kendo.common.min.css" rel="stylesheet" />
 <link href="//cdn.kendostatic.com/2012.3.1315/styles/kendo.default.min.css" rel="stylesheet" />
 <link href="./styles/kendoext/kendo.ext.css" rel="stylesheet" />
-''''
+````
 
 ### Adding the JavaScript
 
 Add the contents of the js folder to your application.  In the HTML file, define the reference to the kendo.web.ext.js after the references to the jQuery and Kendo UI JavaScript files.  For example:
 
-'''html
+```html
 <script src="//code.jquery.com/jquery-1.8.2.min.js"></script>
 <script src="//cdn.kendostatic.com/2012.3.1315/js/kendo.all.min.js"></script>
 <script src="./scripts/kendo.web.ext.js"></script>
-''''
+````
 
 
 ## Authors
