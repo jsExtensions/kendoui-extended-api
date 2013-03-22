@@ -1,9 +1,12 @@
 ﻿/* General */
+
 .k-ext-required {
     background-color: pink;
 }
 
+
 /* ExtSplitter */
+
 .k-ext-layout-header {
     margin-top:0px;
     position: relative;
@@ -49,7 +52,9 @@
 	background-position: -16px 0;
 }
 
+
 /* ExtDialog */
+
 .k-ext-information, .k-ext-question, .k-ext-warning, .k-ext-error {
 	overflow: hidden;
 	width: 32px;
@@ -86,7 +91,9 @@
 	margin: 0;
 }
 
+
 /* ExtBorderLayout */
+
 .k-ext-inner-splitter-contents {
     overflow: hidden !important;
 }
@@ -95,3 +102,33 @@
 	background-position: -108px -270px;
     height: 20px !important;
 }
+
+
+/* ExtTextBox */
+
+.k-ext-textbox {
+	display:inline-block;
+	position:relative;
+	height:2.2em;
+}
+
+	.k-ext-textbox span {
+		position:absolute;
+		top:0;
+		left:0;
+		color:gray;
+		z-index:99; 
+		padding:0.178em 0; 
+		height:1.6em; 
+		line-height:1.6em; 
+		text-indent:4px;
+	}
+
+	.k-ext-textbox input {
+		position:absolute !important;
+		opacity:1;
+		filter:alpha(opacity=100);
+		top:0;
+		left:0;
+		width:99%;
+	}

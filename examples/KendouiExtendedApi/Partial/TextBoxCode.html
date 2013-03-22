@@ -1,0 +1,43 @@
+<div class="section-title">HTML Code</div>
+<div class="subsection-title">Taken from /Partial/TextBox.html</div>
+<div class="section">
+    <pre>
+        <code data-language="html">
+&lt;style type="text/css">
+    .lastname-placeholder {
+        font-style: italic;
+        color: orange !important;
+    }
+    .lastname-textbox {
+        width: 400px;
+    }
+    .lastname-input {
+        font-weight: bold;
+    }
+&lt;/style>
+
+&lt;input id="firstname" />&lt;br />
+&lt;br />
+&lt;input id="lastname" class="lastname-input" />
+        </code>
+    </pre>
+</div>
+
+<div class="section-title">JavaScript Code</div>
+<div class="subsection-title">Taken from /Scripts/KendoUiExt.TextBox.js</div>
+<div class="section">
+    <pre>
+        <code data-language="javascript">
+$("#firstname").kendoExtTextBox({
+    width: "200px",
+    placeholder: "Enter first name..."
+});
+
+$("#lastname").kendoExtTextBox({
+    textboxClass: "lastname-textbox",
+    placeholder: "Enter last name...",
+    placeholderClass: "lastname-placeholder"
+});
+        </code>
+    </pre>
+</div>

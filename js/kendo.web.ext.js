@@ -30,6 +30,29 @@
                 }
             });
             return result;
+        },
+
+        findAll: function (array, criteria) {
+            /// <signature>
+            ///   <summary>Find a JSON Object in an array.</summary>
+            ///   <param name="array" type="Array">Array of JSON objects.</param>
+            ///   <param name="criteria" type="Object">
+            ///     Criteria to find the JSON Objects.
+            ///     - attr: the name of the JSON attribute to search on.
+            ///     - value: the value of to find.
+            ///   </param>
+            ///   <returns type="JSON Objects or null if not found" />
+            /// </signature>
+
+            var results = [];
+            $.each(array, function (idx, item) {
+                if (item[criteria.attr] != undefined) {
+                    if (item[criteria.attr].toString() == criteria.value) {
+                        results.push(item);
+                    }
+                }
+            });
+            return results.length == 0 ? null : results;
         }
     };
 
@@ -536,7 +559,7 @@
             $(element).html(that._contentTemplate(options));
             $(element).find("div.k-ext-dialog-content").append(html);
 
-            $(element).parent().append(that._buttonTemplate(options));
+            $(element).after(that._buttonTemplate(options));
 
             $.each(options.buttons, function (idx, button) {
                 if (button.click) {
@@ -594,7 +617,7 @@
                         }
                     }],
                     modal: true,
-                    visible: true,
+                    visible: false,
                     message: "",
                     icon: "k-ext-information"
                 }, options);
@@ -643,7 +666,7 @@
                         }
                     }],
                     modal: true,
-                    visible: true,
+                    visible: false,
                     message: "",
                     icon: "k-ext-information"
             }, options);
@@ -688,7 +711,7 @@
                         }
                     }],
                     modal: true,
-                    visible: true,
+                    visible: false,
                     message: "",
                     icon: "k-ext-information"
                 }, options);
@@ -740,7 +763,7 @@
                         }
                     }],
                     modal: true,
-                    visible: true,
+                    visible: false,
                     message: "",
                     required: false,
                     requiredCss: "k-ext-required"
@@ -777,7 +800,7 @@
                     width: "300px",
                     height: "100px",
                     modal: true,
-                    visible: true,
+                    visible: false,
                     message: ""
                 }, options);
 
@@ -848,6 +871,12 @@
                 open: function (e) {
                     // If the grid is not visible, then make it visible.
                     if (!$(that._grid.element).hasClass("k-custom-visible")) {
+                        // Position the grid so that it is below the dropdown.
+                        $(that._grid.element).css({
+                            "top": $dropdownRootElem.position().top + $dropdownRootElem.height(),
+                            "left": $dropdownRootElem.position().left
+                        });
+                        // Display the grid.
                         $(that._grid.element).slideToggle('fast', function () {
                             that._dropdown.close();
                             $(that._grid.element).addClass("k-custom-visible");
@@ -857,16 +886,14 @@
             }).data("kendoDropDownList");
 
             if (options.dropDownWidth) {
-                that._dropdown._inputWrapper.width(options.dropDownWidth);
+                that._dropdown._focused.width(options.dropDownWidth);
             }
 
             var $dropdownRootElem = $(that._dropdown.element).closest("span.k-dropdown");
 
             $(that._grid.element).hide().css({
                 "border": "1px solid grey",
-                "position": "absolute",
-                "top": $dropdownRootElem.position().top + $dropdownRootElem.height(),
-                "left": $dropdownRootElem.position().left
+                "position": "absolute"
             });
 
             $(document).click(function (e) {
@@ -929,6 +956,12 @@
                 open: function (e) {
                     // If the treeview is not visible, then make it visible.
                     if (!$treeviewRootElem.hasClass("k-custom-visible")) {
+                        // Position the treeview so that it is below the dropdown.
+                        $treeviewRootElem.css({
+                            "top": $dropdownRootElem.position().top + $dropdownRootElem.height(),
+                            "left": $dropdownRootElem.position().left
+                        });
+                        // Display the treeview.
                         $treeviewRootElem.slideToggle('fast', function () {
                             that._dropdown.close();
                             $treeviewRootElem.addClass("k-custom-visible");
@@ -965,12 +998,6 @@
                     "position": "absolute",
                     "background-color": that._dropdown.list.css("background-color")
                 });
-
-            // Position the treeview so that it is below the dropdown.
-            $treeviewRootElem.css({
-                "top": $dropdownRootElem.position().top + $dropdownRootElem.height(),
-                "left": $dropdownRootElem.position().left
-            });
 
             $(document).click(function (e) {
                 // Ignore clicks on the treetriew.
@@ -1020,4 +1047,58 @@
         }
     });
     kendo.ui.plugin(ExtEditor);
+
+
+
+    /*
+     *
+     * ExtTextBox
+     *
+     */
+
+    var ExtTextBox = kendo.ui.Widget.extend({
+        init: function (element, options) {
+            var that = this;
+            var $input = $(element);
+
+            kendo.ui.Widget.fn.init.call(that, element, options);
+
+            $input.before(kendo.format('<div class="k-input k-textbox k-ext-textbox {0}" {1}></div>',
+                that.options.textboxClass,
+                that.options.width
+                    ? kendo.format("style='width:{0};'", that.options.width)
+                    : ""));
+            var $div = $input.prev();
+            $div.append($input);
+
+            $input.before(kendo.format("<span {0}>{1}</span>",
+                that.options.placeholderClass
+                    ? kendo.format("class='{0}'", that.options.placeholderClass)
+                    : "",
+                $input.val().length == 0
+                    ? that.options.placeholder
+                    : ""));
+
+            $input.on("blur", function () {
+                if (that.options.placeholder) {
+                    var $input = $(this);
+
+                    if ($input.val().length == 0) {
+                        $input.prev("span").text(that.options.placeholder);
+                    } else {
+                        $input.prev("span").text("");
+                    }
+                }
+            }).on("focus", function () {
+                if (that.options.placeholder) {
+                    $(this).prev("span").text("");
+                }
+            });
+        },
+
+        options: {
+            name: "ExtTextBox"
+        }
+    });
+    kendo.ui.plugin(ExtTextBox);
 })(window.kendo, window.kendo.jQuery);

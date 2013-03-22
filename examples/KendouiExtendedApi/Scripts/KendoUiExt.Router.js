@@ -44,6 +44,9 @@ KendoUiExt.Router = $.sammy("#contentPane", function () {
 
                 $code.load(kendo.format("/Partial/{0}Code.html", _currentPartial), function () {
                     $code.show();
+                    if (!($.browser.msie && $.browser.version < 9)) {
+                        Rainbow.color();
+                    }
                 });
             });
         }

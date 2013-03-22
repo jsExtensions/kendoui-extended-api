@@ -64,6 +64,7 @@ pre {
     margin-top: 10px;
     width: 600px;
     padding: 7px 7px 7px 7px;
+    min-height: 35px;
 }
 
 .note-section {
