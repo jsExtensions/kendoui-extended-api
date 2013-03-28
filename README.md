@@ -1,3 +1,6 @@
+### Kendo UI Extended API will be moving to the [Kendo Labs, Kendo UI Plugins Repository](https://github.com/kendo-labs/kendo-plugins)
+- - -
+
 # Kendo UI Extended API
 
 The Kendo UI Extended API extends the Kendo UI Framework with additional widgets.
