@@ -954,6 +954,9 @@
                 dataTextField: "text",
                 dataValueField: "value",
                 open: function (e) {
+					//to prevent the dropdown from opening or closing. A bug was found when clicking on the dropdown to 
+					//"close" it. The default dropdown was visible after the treeview had closed.
+					e.preventDefault();
                     // If the treeview is not visible, then make it visible.
                     if (!$treeviewRootElem.hasClass("k-custom-visible")) {
                         // Position the treeview so that it is below the dropdown.
