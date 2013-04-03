@@ -869,6 +869,8 @@
                 dataTextField: "text",
                 dataValueField: "value",
                 open: function (e) {
+                    //to prevent the dropdown from opening or closing.
+                    e.preventDefault();
                     // If the grid is not visible, then make it visible.
                     if (!$(that._grid.element).hasClass("k-custom-visible")) {
                         // Position the grid so that it is below the dropdown.

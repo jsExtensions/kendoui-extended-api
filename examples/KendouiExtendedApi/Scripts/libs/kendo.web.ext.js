@@ -98,9 +98,9 @@
             that._options.arrowsCss = that._options.collapsible
                 ? that._options.region == "north"
                     ? "k-ext-arrows-up"
-                    : that._options.region == "south" 
+                    : that._options.region == "south"
                         ? "k-ext-arrows-down"
-                        : that._options.region == "east" 
+                        : that._options.region == "east"
                             ? "k-ext-arrows-right"
                             : "k-ext-arrows-left"
                 : "";
@@ -412,7 +412,7 @@
                 // If east and west are not defined then add the center region to the vertical array.
                 if (east == null && west == null) {
                     verticalPanes.push(center);
-                // If east and west are not defined, then create a center region for the "inner" splitter.
+                    // If east and west are not defined, then create a center region for the "inner" splitter.
                 } else {
                     var innerSplitterId = kendo.format("{0}_innerSplitterContents", element.id);
                     $layout.append($(kendo.format("<div id='{0}'/>", innerSplitterId)).attr("class", "k-ext-inner-splitter-contents"));
@@ -452,7 +452,7 @@
 
                 // Initialize the inner splitter.
                 that._innerSplitter = $innerDiv.kendoExtLayoutSplitter({ panes: horizontalPanes }).data("kendoExtLayoutSplitter");
-            // There are no east and west regions.
+                // There are no east and west regions.
             } else {
                 // Add the north, center and south regions to the outer splitter.
                 $.each(horizontalPanes, function (idx, pane) {
@@ -669,7 +669,7 @@
                     visible: false,
                     message: "",
                     icon: "k-ext-information"
-            }, options);
+                }, options);
 
                 $(document.body).append(kendo.format("<div id='extOkCancelDialog' style='position:relative;'><div style='position:absolute;left:10px;top:10px;' class='{0}'></div><div style='display:inline-block;margin-left:45px;'>{1}</div></div>", options.icon, options.message));
                 $("#extOkCancelDialog").kendoExtDialog(options);
@@ -842,7 +842,7 @@
                 that._uid, options.gridWidth
                     ? kendo.format("width:{0}", options.gridWidth)
                     : ""));
-            $(element).append(kendo.format("<input id='extDropDown{0}' class='k-ext-dropdown'/>",that._uid));
+            $(element).append(kendo.format("<input id='extDropDown{0}' class='k-ext-dropdown'/>", that._uid));
 
             that._grid = $(kendo.format("#extGrid{0}", that._uid)).kendoGrid(options.grid).data("kendoGrid");
             that._grid.bind("change", function (e) {
@@ -869,6 +869,8 @@
                 dataTextField: "text",
                 dataValueField: "value",
                 open: function (e) {
+                    //to prevent the dropdown from opening or closing.
+                    e.preventDefault();
                     // If the grid is not visible, then make it visible.
                     if (!$(that._grid.element).hasClass("k-custom-visible")) {
                         // Position the grid so that it is below the dropdown.
@@ -954,6 +956,9 @@
                 dataTextField: "text",
                 dataValueField: "value",
                 open: function (e) {
+                    //to prevent the dropdown from opening or closing. A bug was found when clicking on the dropdown to 
+                    //"close" it. The default dropdown was visible after the treeview had closed.
+                    e.preventDefault();
                     // If the treeview is not visible, then make it visible.
                     if (!$treeviewRootElem.hasClass("k-custom-visible")) {
                         // Position the treeview so that it is below the dropdown.
