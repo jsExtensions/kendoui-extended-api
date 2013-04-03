@@ -1,7 +1,7 @@
 ﻿var KendoUiExt = KendoUiExt || {};
 
-KendoUiExt.Router = $.sammy("#contentPane", function () {
-    var _pages = ["borderLayout", "dialog", "alertDialog", "comingSoon"];
+KendoUiExt.Router = function () {
+    var _router = new kendo.Router();
     var _currentPartial = null;
 
     var hideAll = function () {
@@ -13,25 +13,23 @@ KendoUiExt.Router = $.sammy("#contentPane", function () {
         $("#widgetCode").hide();
     };
 
-    this.get("#/", function (context) {
+    _router.route("/", function () {
         hideAll();
     });
 
-    this.get("#/:section", function (context) {
-        var params = this.params;
-
+    _router.route("/:section", function (section) {
         hideAll();
 
         if (_currentPartial != null && KendoUiExt[_currentPartial].unload != undefined) {
             KendoUiExt[_currentPartial].unload();
         }
 
-        if (params.section == "comingSoon") {
+        if (section == "comingSoon") {
             $("#comingSoon").show();
             $("#comingSoonCode").show();
             _currentPartial = null;
         } else {
-            _currentPartial = params.section[0].toUpperCase() + params.section.substring(1);
+            _currentPartial = section[0].toUpperCase() + section.substring(1);
             var $content = $("#widgetContent");
             var $code = $("#widgetCode");
 
@@ -44,7 +42,7 @@ KendoUiExt.Router = $.sammy("#contentPane", function () {
 
                 $code.load(kendo.format("/Partial/{0}Code.html", _currentPartial), function () {
                     $code.show();
-                    if (!($.browser.msie && $.browser.version < 9)) {
+                    if (navigator.appVersion.indexOf("MSIE 8.0") == -1) {
                         Rainbow.color();
                     }
                 });
@@ -52,8 +50,17 @@ KendoUiExt.Router = $.sammy("#contentPane", function () {
         }
     });
 
-    $(function () {
-        KendoUiExt.Router.run("#/");
-        $("#navigationPane .pane-content").load("/Partial/Navigation.html");
-    });
-})
+    var start = function (route) {
+        _router.start();
+        _router.navigate(route);
+    };
+
+    return {
+        start: start
+    };
+}();
+
+$(function () {
+    KendoUiExt.Router.start("#/");
+    $("#navigationPane .pane-content").load("/Partial/Navigation.html");
+});
