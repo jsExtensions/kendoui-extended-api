@@ -1,6 +1,3 @@
-### Kendo UI Extended API will be moving to the [Kendo Labs, Kendo UI Plugins Repository](https://github.com/kendo-labs/kendo-plugins)
-- - -
-
 # Kendo UI Extended API
 
 The Kendo UI Extended API extends the Kendo UI Framework with additional widgets.
@@ -35,9 +32,6 @@ The Kendo UI Extended API extends the Kendo UI Framework with additional widgets
 + [Kendo UI Extended API: BorderLayout Widget](http://www.aspnetwiki.com/page:kendoui-ext-api-borderlayout)
 
 
-## Support Forum Coming Soon
-
-
 ## Adding Kendo UI Web Extended API to Your Application
 
 ### Adding the StyleSheet
@@ -59,6 +53,11 @@ Add the contents of the js folder to your application.  In the HTML file, define
 <script src="//cdn.kendostatic.com/2012.3.1315/js/kendo.all.min.js"></script>
 <script src="./scripts/kendo.web.ext.js"></script>
 ````
+
+
+## Annoucements
+* Some of the widgets found in the Kendo UI Extended API will be added to the [Kendo Labs, Kendo UI Plugins Repository](https://github.com/kendo-labs/kendo-plugins).  However, all the widgets will continue to be developed here.
+* GitHub Pages Coming Soon
 
 
 ## Authors
