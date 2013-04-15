@@ -6,6 +6,7 @@ The Kendo UI Extended API extends the Kendo UI Framework with additional widgets
 ## Kendo UI Web Extended Widgets
 
 + ExtBorderLayout - A layout similar to the ExtJS Border Layout
++ ExtContextMenu - ContextMenu that that can be applied to any HTML element.
 + ExtDialog - Extends the Kendo.ui.Window
 + ExtAlertDialog - Alert Dialog
 + ExtInputDialog - Input Dialog
@@ -21,7 +22,6 @@ The Kendo UI Extended API extends the Kendo UI Framework with additional widgets
 
 + ExtMultiLineInputDialog - Multi Line Input Dialog
 + ExtEditor - Extend Kendo.ui.Editor to support tables
-+ ExtTreeView - Extended Kendo.ui.TreeView with support for context menus
 
 
 ## Articles on How to Use the Kendo UI Web Extended Widgets
