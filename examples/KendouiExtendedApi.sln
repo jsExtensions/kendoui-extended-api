@@ -6,25 +6,26 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "KendouiExtendedApi", "http:
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_49187"
-		Debug.AspNetCompiler.PhysicalPath = ".\KendouiExtendedApi\"
+		Debug.AspNetCompiler.PhysicalPath = "KendouiExtendedApi\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49187\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_49187"
-		Release.AspNetCompiler.PhysicalPath = ".\KendouiExtendedApi\"
+		Release.AspNetCompiler.PhysicalPath = "KendouiExtendedApi\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49187\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = ".\KendouiExtendedApi\"
+		SlnRelativePath = "KendouiExtendedApi\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{67838D64-0E69-456A-B0F2-6E116ED5A903}"
 	ProjectSection(SolutionItems) = preProject
+		..\styles\kendo.ext.css = ..\styles\kendo.ext.css
 		..\js\kendo.web.ext.js = ..\js\kendo.web.ext.js
 	EndProjectSection
 EndProject

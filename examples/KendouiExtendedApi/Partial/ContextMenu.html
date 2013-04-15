@@ -1,0 +1,114 @@
+<div class="widget-title k-block">kendo.ui.ExtContextMenu <i>extends</i> <a href="http://docs.kendoui.com/api/framework/menu">kendo.ui.Menu <div class="external-link-image"></div></a></div>
+<div class="widget-subtitle">Introduced in 2013 Q1</div>
+<div class="section-title">Description</div>
+<div class="section">
+    The ExtContextMenu widget displays a Context Menu for any HTML element defined as a "target".
+</div>
+
+<div class="section-title">Example</div>
+<div class="section">
+    <p>
+        There are 2 context menus in this example.  The first context menu is displayed when the user
+        right-clicks on the "div" or when the user right-clicks on a "child" item in the TreeView.
+        The second context menu is displayed when the user right-clicks on a "root" item in the 
+        TreeView.
+    </p>
+    <div id="contextMenuTarget" class="k-block" style="font-weight:bold;">Right-click on this div</div>
+    <br />
+    <div style="font-weight:bold;">Right-click on a tree node.</div>
+    <div id="treeview">
+    </div>
+
+    <ul id="itemcontextmenu">
+        <li>
+            <span class="k-edit k-icon"></span>Edit
+        </li>
+        <li class="k-ext-menu-separator">
+            <hr />
+        </li>
+        <li>
+            <span class="k-delete k-icon"></span>Delete
+        </li>
+    </ul>
+
+    <ul id="categorycontextmenu">
+    </ul>
+</div>
+
+<div class="section-title">Configuration</div>
+<div class="section">
+    <div><span class="property-title">width</span> <span class="property-type">: String</span></div>
+    <div class="property-section">
+        The width of the context menu.  The default is 100px.
+    </div>
+
+    <div><span class="property-title">targets</span> <span class="property-type">: String</span></div>
+    <div class="property-section">
+        The CSS Selector that identifies the elements that can be right-clicked to display the context menu.
+    </div>
+
+    <div><span class="property-title">items</span> <span class="property-type">: Array</span></div>
+    <div class="property-section">
+        An array of items to display in the context menu.  The items in the context menu can either be defined
+        in the HTML as li elements, or in the items array.
+    </div>
+
+    <div><span class="property-title">items.text</span> <span class="property-type">: String</span></div>
+    <div class="property-section">
+        The text to display for the context menu.
+    </div>
+
+    <div><span class="property-title">items.iconCss</span> <span class="property-type">: String</span></div>
+    <div class="property-section">
+        The CSS class for the icon.
+    </div>
+
+    <div><span class="property-title">items.separator</span> <span class="property-type">: Boolean</span></div>
+    <div class="property-section">
+        A separator line is displayed.
+    </div>
+</div>
+
+<div class="section-title">Methods</div>
+<div class="section">
+    <div><span class="property-title">show</span></div>
+    <div class="property-section">
+        Show the context menu.  This is an internal method that displays the context menu when the user right clicks
+        on a target.
+    </div>
+    <div><span class="subsection-title">Parameters</span></div>
+    <div class="property-section">
+        <div><span class="parameter-title">left</span> <span class="parameter-type">: Integer</span></div>
+        <div class="property-section">
+            The left position of the context menu relative to the left edge of the document.
+        </div>
+        <div><span class="parameter-title">top</span> <span class="parameter-type">: Integer</span></div>
+        <div class="property-section">
+            The top position of the context menu relative to the top edge of the document.
+        </div>
+    </div>
+
+    <div><span class="property-title">hide</span></div>
+    <div class="property-section">
+        Hide the context menu.
+    </div>
+</div>
+
+<div class="section-title">Events</div>
+<div class="section">
+    <div><span class="property-title">itemSelect</span></div>
+    <div class="property-section">
+        Triggered when an item is selected in the context menu.
+    </div>
+    <div><span class="subsection-title">Parameters</span></div>
+    <div class="property-section">
+        <div><span class="parameter-title">e.item</span> <span class="parameter-type">: HTML Element</span></div>
+        <div class="property-section">
+            The item that was selected in the context menu.
+        </div>
+        <div><span class="parameter-title">e.target</span> <span class="parameter-type">: HTML Element</span></div>
+        <div class="property-section">
+            The target that was right-clicked on to display the context menu.
+        </div>
+    </div>
+</div>

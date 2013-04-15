@@ -1,4 +1,5 @@
-﻿/// <version>2013.03.11</version>
+﻿/// <version>2013.04.14</version>
+/// <summary>Works with the Kendo UI 2013 Q1 and jQuery 1.9.1</summary>
 
 (function (kendo, $) {
     kendo.arrays = {
@@ -98,9 +99,9 @@
             that._options.arrowsCss = that._options.collapsible
                 ? that._options.region == "north"
                     ? "k-ext-arrows-up"
-                    : that._options.region == "south" 
+                    : that._options.region == "south"
                         ? "k-ext-arrows-down"
-                        : that._options.region == "east" 
+                        : that._options.region == "east"
                             ? "k-ext-arrows-right"
                             : "k-ext-arrows-left"
                 : "";
@@ -412,7 +413,7 @@
                 // If east and west are not defined then add the center region to the vertical array.
                 if (east == null && west == null) {
                     verticalPanes.push(center);
-                // If east and west are not defined, then create a center region for the "inner" splitter.
+                    // If east and west are not defined, then create a center region for the "inner" splitter.
                 } else {
                     var innerSplitterId = kendo.format("{0}_innerSplitterContents", element.id);
                     $layout.append($(kendo.format("<div id='{0}'/>", innerSplitterId)).attr("class", "k-ext-inner-splitter-contents"));
@@ -452,7 +453,7 @@
 
                 // Initialize the inner splitter.
                 that._innerSplitter = $innerDiv.kendoExtLayoutSplitter({ panes: horizontalPanes }).data("kendoExtLayoutSplitter");
-            // There are no east and west regions.
+                // There are no east and west regions.
             } else {
                 // Add the north, center and south regions to the outer splitter.
                 $.each(horizontalPanes, function (idx, pane) {
@@ -669,7 +670,7 @@
                     visible: false,
                     message: "",
                     icon: "k-ext-information"
-            }, options);
+                }, options);
 
                 $(document.body).append(kendo.format("<div id='extOkCancelDialog' style='position:relative;'><div style='position:absolute;left:10px;top:10px;' class='{0}'></div><div style='display:inline-block;margin-left:45px;'>{1}</div></div>", options.icon, options.message));
                 $("#extOkCancelDialog").kendoExtDialog(options);
@@ -721,6 +722,10 @@
                 $("#extYesNoDialog").parent().find("div.k-window-titlebar div.k-window-actions").empty();
                 $("#extYesNoDialog").data("kendoExtDialog").center().open();
             });
+        },
+
+        hide: function () {
+            $("#extYesNoDialog").data("kendoExtDialog").close();
         }
     };
 
@@ -842,7 +847,7 @@
                 that._uid, options.gridWidth
                     ? kendo.format("width:{0}", options.gridWidth)
                     : ""));
-            $(element).append(kendo.format("<input id='extDropDown{0}' class='k-ext-dropdown'/>",that._uid));
+            $(element).append(kendo.format("<input id='extDropDown{0}' class='k-ext-dropdown'/>", that._uid));
 
             that._grid = $(kendo.format("#extGrid{0}", that._uid)).kendoGrid(options.grid).data("kendoGrid");
             that._grid.bind("change", function (e) {
@@ -956,9 +961,9 @@
                 dataTextField: "text",
                 dataValueField: "value",
                 open: function (e) {
-					//to prevent the dropdown from opening or closing. A bug was found when clicking on the dropdown to 
-					//"close" it. The default dropdown was visible after the treeview had closed.
-					e.preventDefault();
+                    //to prevent the dropdown from opening or closing. A bug was found when clicking on the dropdown to 
+                    //"close" it. The default dropdown was visible after the treeview had closed.
+                    e.preventDefault();
                     // If the treeview is not visible, then make it visible.
                     if (!$treeviewRootElem.hasClass("k-custom-visible")) {
                         // Position the treeview so that it is below the dropdown.
@@ -1106,4 +1111,112 @@
         }
     });
     kendo.ui.plugin(ExtTextBox);
+
+
+
+    /*
+     *
+     * ExtContextMenu
+     *
+     */
+
+    var ExtContextMenu = kendo.ui.Menu.extend({
+        _itemTemplate: "<li># if (iconCss.length > 0) { #<span class=' #=iconCss # k-icon'></span># } # #= text #</li>",
+
+        init: function (element, options) {
+            var that = this;
+
+            $(element).appendTo("body").hide();
+
+            options = $.extend(options,
+                {
+                    orientation: "vertical"
+                });
+
+            // If the list of items has been passed in...
+            if (options.items) {
+                var itemTemplate = kendo.template(that._itemTemplate);
+                $.each(options.items, function (idx, item) {
+                    var html = "";
+                    if (item.separator) {
+                        html = "<li class='k-ext-menu-separator'><hr/><li>";
+                    } else {
+                        item = $.extend({ iconCss: "" }, item);
+                        html = itemTemplate(item);
+                    }
+                    $(element).append(html);
+                });
+            }
+
+            // Call the base class init.
+            kendo.ui.Menu.fn.init.call(that, element, options);
+
+            // If there are any separators, then remove the k-link class.
+            $(that.element).find("li.k-ext-menu-separator span").removeClass("k-link");
+
+            // When the user right-clicks on any of the targets, then display the context menu.
+            $(document).on("contextmenu", options.targets, function (e) {
+                e.preventDefault();
+                that.trigger("beforeopen", e);
+                that._currentTarget = e.currentTarget;
+                that.show(e.pageX, e.pageY);
+                return false;
+            });
+
+            if (that.options.beforeOpen) {
+                that.bind("beforeopen", that.options.beforeOpen);
+            }
+
+            that.bind("select", that._select);
+
+            $(that.element).css({ "width": that.options.width, "position": "absolute" }).addClass("k-block").addClass("k-ext-contextmenu");
+
+            // If the user is not clicking on the context menu, then hide the menu.
+            $(document).click(function (e) {
+                // Ignore clicks on the contextmenu.
+                if ($(e.target).closest(".k-ext-contextmenu").length == 0) {
+                    // If visible, then close the contextmenu.
+                    if ($(that.element).hasClass("k-custom-visible")) {
+                        that.hide();
+                    }
+                }
+            });
+        },
+
+        show: function (left, top) {
+            var that = this;
+
+            // Position the context menu.
+            $(that.element).css({
+                "top": top,
+                "left": left
+            });
+            // Display the context menu.
+            $(that.element).slideToggle('fast', function () {
+                $(that.element).addClass("k-custom-visible");
+            });
+        },
+
+        hide: function () {
+            var that = this;
+
+            $(that.element).slideToggle('fast', function () {
+                $(that.element).removeClass("k-custom-visible");
+            });
+        },
+
+        _select: function (e) {
+            if (this.options.itemSelect != undefined) {
+                e.target = this._currentTarget;
+                this.options.itemSelect.apply(this, [e]);
+            }
+            this.hide();
+        },
+
+        options: {
+            name: "ExtContextMenu",
+            width: "100px"
+        }
+    });
+    kendo.ui.plugin(ExtContextMenu);
 })(window.kendo, window.kendo.jQuery);

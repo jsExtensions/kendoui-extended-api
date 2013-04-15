@@ -98,11 +98,6 @@
     overflow: hidden !important;
 }
 
-.k-ext-table {
-	background-position: -108px -270px;
-    height: 20px !important;
-}
-
 
 /* ExtTextBox */
 
@@ -132,3 +127,10 @@
 		left:0;
 		width:99%;
 	}
+
+/* ExtEditor */
+
+.k-ext-table {
+	background-position: -108px -270px;
+    height: 20px !important;
+}

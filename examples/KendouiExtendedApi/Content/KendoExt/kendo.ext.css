@@ -132,3 +132,25 @@
 		left:0;
 		width:99%;
 	}
+
+/* ExtEditor */
+
+.k-ext-table {
+	background-position: -112px -270px;
+    height: 20px !important;
+    width: 16px !important;
+    background-repeat: no-repeat;
+}
+
+.k-ext-editor-tbl-dlg-row {
+    height:50px;
+}
+
+.k-ext-editor-tbl-dlg-label {
+    display: inline-block;
+    width: 70px;
+}
+
+.k-ext-editor-tbl-dlg-input {
+    display: inline-block;
+}
