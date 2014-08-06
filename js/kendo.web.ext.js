@@ -623,7 +623,7 @@
                     icon: "k-ext-information"
                 }, options);
 
-                $(document.body).append(kendo.format("<div id='extAlertDialog' style='position:relative;'><div style='position:absolute;left:10px;top:10px;' class='{0}'></div><div style='display:inline-block;margin-left:45px;'>{1}</div></div>", options.icon, options.message));
+                $(document.body).append(kendo.format("<div id='extAlertDialog' style='position:relative;'><div style='position:absolute;left:10px;top:10px;' class='{0}'></div><div style='display:inline-block;margin-left:45px;'>{1}</div></div>", options.icon, options.message.replace(/\r\n|\n\r|\r|\n/gi, "<br />")));
                 dialog = $("#extAlertDialog").kendoExtDialog(options).data("kendoExtDialog");
                 $("#extAlertDialog").parent().find("div.k-window-titlebar div.k-window-actions").empty();
                 dialog.center().open();
@@ -672,7 +672,7 @@
                     icon: "k-ext-information"
                 }, options);
 
-                $(document.body).append(kendo.format("<div id='extOkCancelDialog' style='position:relative;'><div style='position:absolute;left:10px;top:10px;' class='{0}'></div><div style='display:inline-block;margin-left:45px;'>{1}</div></div>", options.icon, options.message));
+                $(document.body).append(kendo.format("<div id='extOkCancelDialog' style='position:relative;'><div style='position:absolute;left:10px;top:10px;' class='{0}'></div><div style='display:inline-block;margin-left:45px;'>{1}</div></div>", options.icon, options.message.replace(/\r\n|\n\r|\r|\n/gi, "<br />")));
                 $("#extOkCancelDialog").kendoExtDialog(options);
                 $("#extOkCancelDialog").parent().find("div.k-window-titlebar div.k-window-actions").empty();
                 $("#extOkCancelDialog").data("kendoExtDialog").center().open();
@@ -717,7 +717,7 @@
                     icon: "k-ext-information"
                 }, options);
 
-                $(document.body).append(kendo.format("<div id='extYesNoDialog' style='position:relative;'><div style='position:absolute;left:10px;top:10px;' class='{0}'></div><div style='display:inline-block;margin-left:45px;'>{1}</div></div>", options.icon, options.message));
+                $(document.body).append(kendo.format("<div id='extYesNoDialog' style='position:relative;'><div style='position:absolute;left:10px;top:10px;' class='{0}'></div><div style='display:inline-block;margin-left:45px;'>{1}</div></div>", options.icon, options.message.replace(/\r\n|\n\r|\r|\n/gi, "<br />")));
                 $("#extYesNoDialog").kendoExtDialog(options);
                 $("#extYesNoDialog").parent().find("div.k-window-titlebar div.k-window-actions").empty();
                 $("#extYesNoDialog").data("kendoExtDialog").center().open();
@@ -774,7 +774,7 @@
                     requiredCss: "k-ext-required"
                 }, options);
 
-                $(document.body).append(kendo.format("<div id='extInputDialog' style='position:relative;'><div style='display:block;margin-left:10px;right-margin:10px;'>{0}</div><div style='display:block;margin-left:10px;margin-right:15px;'><input type='text' class='k-ext-input-dialog-input' style='width:100%;'</input></div></div>", options.message));
+                $(document.body).append(kendo.format("<div id='extInputDialog' style='position:relative;'><div style='display:block;margin-left:10px;right-margin:10px;'>{0}</div><div style='display:block;margin-left:10px;margin-right:15px;'><input type='text' class='k-ext-input-dialog-input' style='width:100%;'</input></div></div>", options.message.replace(/\r\n|\n\r|\r|\n/gi, "<br />")));
                 dialog = $("#extInputDialog").kendoExtDialog(options).data("kendoExtDialog");
                 $("#extInputDialog").parent().find("div.k-window-titlebar div.k-window-actions").empty();
                 dialog.center().open();
@@ -809,7 +809,7 @@
                     message: ""
                 }, options);
 
-                $(document.body).append(kendo.format("<div id='extWaitDialog' style='position:relative;'><div style='position:absolute;left:10px;top:10px;' class='k-ext-wait'></div><div style='display:inline-block;margin-left:45px;'>{0}</div></div>", options.message));
+                $(document.body).append(kendo.format("<div id='extWaitDialog' style='position:relative;'><div style='position:absolute;left:10px;top:10px;' class='k-ext-wait'></div><div style='display:inline-block;margin-left:45px;'>{0}</div></div>", options.message.replace(/\r\n|\n\r|\r|\n/gi, "<br />")));
                 $("#extWaitDialog").kendoWindow(options);
                 $("#extWaitDialog").parent().find("div.k-window-titlebar div.k-window-actions").empty();
                 $("#extWaitDialog").data("kendoWindow").center().open();
